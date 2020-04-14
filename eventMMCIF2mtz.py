@@ -62,6 +62,6 @@ def convertToMTZ(root):
 
 if __name__ == '__main__':
     mmcif = sys.argv[1]
-    root = mmcif.replace('.mmcif','')
+    root = mmcif.replace('.mmcif','').replace('.cif','')
     parseMMCIF(mmcif,root)
     convertToMTZ(root)
