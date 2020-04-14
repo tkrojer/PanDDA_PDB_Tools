@@ -32,6 +32,6 @@ Please note that the map sigma level is not meaningful. Also keep in mind that P
 ## Additional information
 * Pearce, N. M. et al. A multi-crystal method for extracting obscured crystallographic states from conventionally uninterpretable electron density. Nat Commun 8, 15123 (2017).
 * Pearce, N. M. et al. Partial-occupancy binders identified by the Pan-Dataset Density Analysis method offer new chemical opportunities and reveal cryptic binding sites. Struct Dyn 4, (2017).
-* Pearce, N. M., Krojer, T. & von Delft, F. Proper modelling of ligand binding requires an ensemble of bound and unbound states. Acta Cryst D, Acta Cryst Sect D, Acta Crystallogr D, Acta Crystallogr Sect D, Acta Crystallogr D Struct Biol, Acta Crystallogr Sect D Struct Biol 73, 256–266 (2017).
+* Pearce, N. M., Krojer, T. & von Delft, F. Proper modelling of ligand binding requires an ensemble of bound and unbound states. Acta Cryst D 73, 256–266 (2017).
 * https://pandda.bitbucket.io
 
