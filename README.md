@@ -2,11 +2,12 @@
 A collections of simple python scripts which help to convert different MMCIF files from PanDDA PDB group depositions into easy to work with MTZ files. Some general information regarding PanDDA PDB group depositions can be found on openlabnotebooks.org: https://openlabnotebooks.org/update-on-batch-deposition-of-xchem-structures.
 
 ### Installation
-Download eventMMCIF2mtz.py from github; then make it executable:
+Download the python scipts from github; then make it executable:
 ```
+e.g.
 chmod +x eventMMCIF2mtz.py
 ```
-If you want to use it repeatedly, add the directory containing the script to your PATH variable. 
+If you want to use it repeatedly, add the directory containing the scripts to your PATH variable. 
 ```
 export PATH=/path/to/script:$PATH
 e.g.
@@ -15,7 +16,7 @@ export PATH=/Users/tobiaskrojer/Scripts/eventMMCIF2mtz:$PATH
 Note: you need to add this line to your .bashrc or .bash_profile file.
 
 ### Requirements
-You need to have the CCP4 program suite installed, because the script uses cif2mtz, cad and dimple.
+You need to have the CCP4 program suite installed, because the scripts use cif2mtz, cad and dimple.
 
 
 
@@ -24,7 +25,7 @@ A python script which enables extraction of PanDDA event maps from MMCIF files d
 
 ### usage
 
-Next, download an MMCIF file from the PDB website (e.g. 5R7Z) and run the script:
+Download an MMCIF file from the PDB website (e.g. 5R7Z) and run the script:
 ```
 ./eventMMCIF2mtz.py 5r7z-sf.cif
 ```
@@ -38,7 +39,7 @@ Please note that the map sigma level is not meaningful. Also keep in mind that P
 
 
 ## ground_state_MMCIF2mtz
-This script takes a mulit-dataset MMCIF file from a PanDDA ground_state deposition and created a folder for each MMCIF data block in the selected project directory. It then converts the respective MMCIF file into an MTZ file. The resulting folder structure is ready to run the next script (run_dimple.py).
+This script takes a mulit-dataset MMCIF file from a PanDDA ground_state deposition and creates a folder for each MMCIF data block in the selected project directory. It then converts the each MMCIF file into an MTZ file. The resulting folder structure is ready to run the next script (run_dimple.py).
 
 ### usage
 ```
@@ -48,14 +49,16 @@ ground_state_MMCIF2mtz.py ground_state_0_sf.mmcif /Users/tobiaskrojer/PanDDA
 ```
 
 ## run_dimple.py
-This script runs DIMPLE on all files in a given project directory prepared with ground_state_MMCIF2mtz.py.
+This script runs DIMPLE on all files in a given project directory prepared with ground_state_MMCIF2mtz.py. This is necessary because PanDDA needs a PDB, as well as an MTZ file to run.
 
 ### usage
+First, download the PDB file of the ground_state deposition; then run run_dimple.py
 ```
 run_dimple.py <reference_PDB_file> <project_directory>
 e.g.
 run_dimple.py 5r7x.pdb /Users/tobiaskrojer/PanDDA
 ```
+Please note that the script runs the jobs sequentially and uses only one core, so it may take a couple of hours to finish.
 
 
 ## Additional information
