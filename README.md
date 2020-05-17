@@ -15,7 +15,7 @@ export PATH=/Users/tobiaskrojer/Scripts/eventMMCIF2mtz:$PATH
 Note: you need to add this line to your .bashrc or .bash_profile file.
 
 ### Requirements
-* You need to have the CCP4 program suite installed, because the script uses cif2mtz, cad and dimple.
+You need to have the CCP4 program suite installed, because the script uses cif2mtz, cad and dimple.
 
 
 
