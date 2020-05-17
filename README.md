@@ -1,7 +1,7 @@
-# eventMMCIF2mtz
-A simple python script which enables extraction of PanDDA event maps from MMCIF files downloaded from the Protein Ddata Bank (PDB).
+# PanDDA_PDB_Tools
+A collections of simple python scripts which help to convert different MMCIF files from PanDDA PDB group depositions into easy to work with MTZ files.
 
-## Usage
+### Installation
 Download eventMMCIF2mtz.py from github; then make it executable:
 ```
 chmod +x eventMMCIF2mtz.py
@@ -13,6 +13,16 @@ e.g.
 export PATH=/Users/tobiaskrojer/Scripts/eventMMCIF2mtz:$PATH
 ```
 Note: you need to add this line to your .bashrc or .bash_profile file.
+
+### Requirements
+* You need to have the CCP4 program suite installed, because the script uses cif2mtz, cad and dimple.
+
+
+
+## eventMMCIF2mtz.py
+A python script which enables extraction of PanDDA event maps from MMCIF files downloaded from the Protein Ddata Bank (PDB).
+
+### usage
 
 Next, download an MMCIF file from the PDB website (e.g. 5R7Z) and run the script:
 ```
@@ -26,8 +36,27 @@ Start COOT and select "Open MTZ, mmCIF, fcf or phs...", then choose F_event as A
 
 Please note that the map sigma level is not meaningful. Also keep in mind that PanDDA event maps are local maps and only valid in the immediate neighbourhood of the modelled ligand.
 
-## Requirements
-* You need to have the CCP4 program suite installed, because the script uses cif2mtz and cad.
+
+## ground_state_MMCIF2mtz
+This script takes a mulit-dataset MMCIF file from a PanDDA ground_state deposition and created a folder for each MMCIF data block in the selected project directory. It then converts the respective MMCIF file into an MTZ file. The resulting folder structure is ready to run the next script (run_dimple.py).
+
+### usage
+```
+ground_state_MMCIF2mtz.py <mmcif_file> <project_directory>
+e.g.
+ground_state_MMCIF2mtz.py ground_state_0_sf.mmcif /Users/tobiaskrojer/PanDDA
+```
+
+## run_dimple.py
+This script runs DIMPLE on all files in a given project directory prepared with ground_state_MMCIF2mtz.py.
+
+### usage
+```
+run_dimple.py <reference_PDB_file> <project_directory>
+e.g.
+run_dimple.py 5r7x.pdb /Users/tobiaskrojer/PanDDA
+```
+
 
 ## Additional information
 * Pearce, N. M. et al. A multi-crystal method for extracting obscured crystallographic states from conventionally uninterpretable electron density. Nat Commun 8, 15123 (2017).
