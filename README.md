@@ -2,12 +2,12 @@
 A collections of simple python scripts which help to convert different MMCIF files from PanDDA PDB group depositions into easy to work with MTZ files. Some general information regarding PanDDA PDB group depositions can be found on openlabnotebooks.org: https://openlabnotebooks.org/update-on-batch-deposition-of-xchem-structures.
 
 ### Installation
-Download the python scipts from github; then make it executable:
+Download the python scipts from github; then make them executable:
 ```
 e.g.
 chmod +x eventMMCIF2mtz.py
 ```
-If you want to use it repeatedly, add the directory containing the scripts to your PATH variable. 
+If you want to use them repeatedly, add the directory containing the scripts to your PATH variable. 
 ```
 export PATH=/path/to/script:$PATH
 e.g.
