@@ -22,6 +22,8 @@ def parseMMCIF(mmcif,targetDir):
 
 def writeMMCIFblock(mmcifBlock,targetDir,nBlock):
     n = (4-len(str(nBlock)))*'0'+str(nBlock)
+    if not os.path.isdir(targetDir):
+        os.mkdir(targetDir)
     os.chdir(targetDir)
     if not os.path.isdir('crystal_' + str(n)):
         os.mkdir('crystal_' + str(n))
@@ -61,8 +63,8 @@ def saveSmailes(nBlock,smiles):
 
 def convertToMTZ(targetDir,nBlock):
     n = (4-len(str(nBlock)))*'0'+str(nBlock)
-    os.chdir(os.path.join(targetDir,'crystal_' + str(n)))
     print('converting MMCIF block #{0!s} to MTZ in directory {1!s}'.format(nBlock,os.path.join(targetDir,'crystal_' + str(n))))
+    os.chdir(os.path.join(targetDir,'crystal_' + str(n)))
     unitCell, symm, smiles = getSymmFromMMCIF('crystal_' + str(n) + '.mmcif')
     cmd = ( 'cif2mtz hklin crystal_{0!s}.mmcif hklout crystal_{1!s}.mtz << eof > cif2mtz.log\n'.format(n,n) +
             ' symmetry %s\n' %symm +
@@ -71,7 +73,18 @@ def convertToMTZ(targetDir,nBlock):
     os.system(cmd)
     saveSmailes(n,smiles)
 
+def absolute_path(targetDir):
+    ap = False
+    if targetDir.startswith('/'):
+        ap = True
+    else:
+        print('ERROR: you must use the absolute path to the target directory')
+        print('       e.g. ')
+        print('       /Users/tobkro/projectX')
+    return ap
+
 if __name__ == '__main__':
     mmcif = sys.argv[1]
     targetDir = sys.argv[2]
-    parseMMCIF(mmcif,targetDir)
+    if absolute_path(targetDir):
+        parseMMCIF(mmcif,targetDir)
