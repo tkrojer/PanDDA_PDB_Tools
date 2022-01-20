@@ -3,7 +3,6 @@
 import os,glob
 import sys
 
-
 def parseMMCIF(mmcif,root):
     mmcifBlock = ''
     foundEvent = False
@@ -53,12 +52,12 @@ def convertToMTZ(root):
                 ' cell %s\n' %unitCell +
                 'eof\n'
                 'cad hklin1 %s hklout %s << eof\n' %(root + '.tmp.mtz',mmcif.replace('.mmcif','.mtz')) +
-                ' labin file_number 1 E1=FP E2=PHWT \n'
+                ' labin file_number 1 E1=FWT E2=PHWT \n'
                 ' labout file_number 1 E1=F_event E2=PH_event \n'
                 'eof\n'
                 '/bin/rm %s\n' %(root + '.tmp.mtz')                )
         os.system(cmd)
-        print cmd
+        print(cmd)
 
 if __name__ == '__main__':
     mmcif = sys.argv[1]
